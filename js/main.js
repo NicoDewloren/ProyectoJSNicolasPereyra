@@ -1,4 +1,4 @@
-// Carrito de compras CORRALON SODIMAC PERU
+// Corralon 
 
 // Clase
 
@@ -34,6 +34,9 @@ const productos = [cementoAvellaneda, cementoLomaNegra, bolsaArena, ladrillo, re
 
 console.log(productos)
 
+// Array carrito
+
+const compraTotal = []
 
 // Variables Globales
 
@@ -51,48 +54,56 @@ do {
         case "1":
             cantidadProducto = prompt("Ingrese la cantidad")
             precioTotal = precioProductos(cantidadProducto, cementoAvellaneda.precio)
+            compraTotal.push(precioTotal)
 
 
             break;
         case "2":
             cantidadProducto = prompt("Ingrese la cantidad")
             precioTotal = precioProductos(cantidadProducto, cementoLomaNegra.precio)
+            compraTotal.push(precioTotal)
 
 
             break;
         case "3":
             cantidadProducto = prompt("Ingrese la cantidad")
             precioTotal = precioProductos(cantidadProducto, bolsaArena.precio)
+            compraTotal.push(precioTotal)
 
 
             break;
         case "4":
             cantidadProducto = prompt("Ingrese la cantidad")
             precioTotal = precioProductos(cantidadProducto, ladrillo.precio)
+            compraTotal.push(precioTotal)
 
 
             break;
         case "5":
             cantidadProducto = prompt("Ingrese la cantidad")
             precioTotal = precioProductos(cantidadProducto, revoqueFino.precio)
+            compraTotal.push(precioTotal)
 
 
             break;
         case "6":
             cantidadProducto = prompt("Ingrese la cantidad")
             precioTotal = precioProductos(cantidadProducto, machimbre.precio)
+            compraTotal.push(precioTotal)
 
 
             break;
         case "7":
             cantidadProducto = prompt("Ingrese la cantidad")
             precioTotal = precioProductos(cantidadProducto, yeso.precio)
+            compraTotal.push(precioTotal)
 
 
             break;
         case "8":
             cantidadProducto = prompt("Ingrese la cantidad")
             precioTotal = precioProductos(cantidadProducto, ceresita.precio)
+            compraTotal.push(precioTotal)
 
 
             break;
@@ -136,5 +147,20 @@ function precioProductos(cantidad, precio) {
     return resultado
 }
 
+function sumarProductos(array) {
+    let resultado = 0
+    for (i = 0; i < array.length; i++)
+        resultado += array[i]
+    return resultado;
+}
 
 
+
+
+
+
+// Console log prueba metodo push 
+
+console.log(compraTotal)
+
+console.log("El total de la compra es: " + sumarProductos(compraTotal) + "$")
