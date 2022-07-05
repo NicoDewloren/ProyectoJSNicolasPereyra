@@ -3,24 +3,25 @@
 // Clase
 
 class producto {
-    constructor(codigo, nombre, precio) {
+    constructor(codigo, nombre, precio, imagen) {
 
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = parseInt(precio);
+        this.imagen = imagen;
     }
 }
 
 // Objetos
 
-const cementoAvellaneda = new producto("SKU: 100", "Cemento Avellaneda", 1000);
-const cementoLomaNegra = new producto("SKU: 101", "Cemento Loma Negra", 900);
-const bolsaArena = new producto("SKU: 102", "Bolsa de Arena", 1000);
-const ladrillo = new producto("SKU: 103", "Ladrillo", 59);
-const revoqueFino = new producto("SKU: 104", "Revoque Fino", 1800);
-const machimbre = new producto("SKU: 105", "Machimbre", 3000);
-const yeso = new producto("SKU: 106", "Yeso", 700);
-const ceresita = new producto("SKU: 107", "Ceresita", 1200);
+const cementoAvellaneda = new producto("SKU: 100", "Cemento Avellaneda", 1000, "cementoavellaneda.jpg");
+const cementoLomaNegra = new producto("SKU: 101", "Cemento Loma Negra", 900, "cementolomanegra.jpg");
+const bolsaArena = new producto("SKU: 102", "Bolsa de Arena", 1000, "arena.jpg");
+const ladrillo = new producto("SKU: 103", "Ladrillo", 59, "ladrillo.jpg");
+const revoqueFino = new producto("SKU: 104", "Revoque Fino", 1800, "revoquefino.jpg");
+const machimbre = new producto("SKU: 105", "Machimbre", 3000, "machimbre.jpg");
+const yeso = new producto("SKU: 106", "Yeso", 700, "yeso.jpg");
+const ceresita = new producto("SKU: 107", "Ceresita", 1200, "ceresita.jpg");
 
 
 
@@ -45,7 +46,7 @@ let precioTotal = 0;
 let opcion = 0;
 let cantidadProducto = 0;
 
-let nombreCliente = prompt("Corralon NEKI\nPara continuar, por favor ingrese su Nombre");
+/* let nombreCliente = prompt("Corralon NEKI\nPara continuar, por favor ingrese su Nombre");
 alert("Bienvenido " + nombreCliente + ". A continuacion podras elegir tus productos, gracias por elegirnos");
 
 do {
@@ -137,7 +138,7 @@ alert("Su vuelto es :" + vuelto + "$" + "\n Gracias por tu compra. Vuelva pronto
 
 
 
-
+ */
 
 // Funciones
 
@@ -164,3 +165,23 @@ function sumarProductos(array) {
 console.log(compraTotal)
 
 console.log("El total de la compra es: " + sumarProductos(compraTotal) + "$")
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Interaccion con el HTML 
+
+for (prod of productos) {
+    let contenedor = document.createElement("div");
+    contenedor.innerHTML = `<h3>${prod.codigo}
+                        <p> Nombre del Producto : ${prod.nombre}<br>
+                        <img src='img/${prod.imagen}' width='200'><br>
+                        <b> Valor del Producto : $${prod.precio}</b></p>
+                        <hr>`;
+    contenedor.className = "productosDelCorralon"
+
+    document.getElementById("productosCorralon").appendChild(contenedor)
+
+
+
+}
