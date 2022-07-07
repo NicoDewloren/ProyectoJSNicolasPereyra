@@ -142,7 +142,7 @@ alert("Su vuelto es :" + vuelto + "$" + "\n Gracias por tu compra. Vuelva pronto
 
 // Funciones
 
-function precioProductos(cantidad, precio) {
+/* function precioProductos(cantidad, precio) {
     resultado = cantidad * precio
     alert("El total por estas unidadades es de " + resultado + "$")
     return resultado
@@ -155,17 +155,17 @@ function sumarProductos(array) {
     return resultado;
 }
 
-
+ */
 
 
 
 
 // Console log prueba metodo push 
-
+/* 
 console.log(compraTotal)
 
 console.log("El total de la compra es: " + sumarProductos(compraTotal) + "$")
-
+ */
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -177,10 +177,35 @@ for (prod of productos) {
                         <p> Nombre del Producto : ${prod.nombre}<br>
                         <img src='img/${prod.imagen}' width='200'><br>
                         <b> Valor del Producto : $${prod.precio}</b></p>
+                        <button class='btnAgregar' id='boton'>Agregar al carrito</button>
                         <hr>`;
     contenedor.className = "productosDelCorralon"
 
     document.getElementById("productosCorralon").appendChild(contenedor)
+
+
+
+}
+
+
+// Agregamos el evento
+
+let botones = document.querySelectorAll(".btnAgregar")
+
+botones.forEach(boton => {
+    boton.addEventListener("click", agregadoAlCarrito)
+
+})
+
+
+
+function agregadoAlCarrito() {
+
+    let productoAgregado = document.createElement("div")
+
+    productoAgregado.innerHTML = `<p class='text-white text-center bg-success m-2 p-2'>El producto ha sido agregado!</p>`
+
+    document.getElementById("productoAgregado").appendChild(productoAgregado)
 
 
 
